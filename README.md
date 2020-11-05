@@ -1,5 +1,7 @@
 # 0. Usage:
 Code to extract GHCN Daily Weather data using geographical co-ordinates. This code was used to generate a dataset with weather data of 10000+ cities across the world. The dataset is available at: https://www.kaggle.com/abhijitk/ghcn-daily-weather-data-by-city-20152020
+
+**World Cities Nearest Stations.csv**: This file contains City names, geographical coordinates, Population, **ID of closest weather station and distance to closest weather station**. First, retrieve the city's 'Closest Station ID' from this file. Then use this ID to retrieve weather data from the Weather files in the dataset.
 ```python
 import pandas as pd
 
@@ -24,7 +26,7 @@ w_par2016 = w_2016[w_2016["ID"]==paris_station[0]]
 w_par2016[["Date","PRCP"]].head() #Daily Precipitaion in paris during 2016
 ```
           Date	PRCP
-846	  20160101	0.0
+846	20160101	0.0
 6163	20160102	15.0
 11491	20160103	15.0
 16852	20160104	84.0
@@ -41,11 +43,14 @@ i)**Global Historical Climatology Network (GHCN) (https://www.ncdc.noaa.gov/ghcn
 ii) **World Cities Database (https://simplemaps.com/data/world-cities):** A database of 26000 cities containing city names, geographical co-ordinates, population, density and country names. The database is available under Creative Commons Attribution 4.0 license.
 
 # 2. Method
+
 I) Obtain files from NOAA and Simplemaps
 
 II) Use the co-ordinates of each City and weather station to find the weather station closest to each city
 
 III) Extract the data for these weather stations and shape it in a human readable format.
+
+IV) Kaggle notebook: https://www.kaggle.com/abhijitk/extracting-weather-data-from-city-coordinates
 
 # 3. Advantages:
 The dataset generated and the code in this notebook has applications beyond the current competition.
